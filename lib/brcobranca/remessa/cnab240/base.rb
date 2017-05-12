@@ -162,7 +162,7 @@ module Brcobranca
           segmento_p << pagamento.data_emissao.strftime('%d%m%Y') # data de emissao titulo   8
           segmento_p << '1' # cod. do juros                                                  1   *
           segmento_p << pagamento.data_vencimento.strftime('%d%m%Y') # data juros            8   *
-          segmento_p << '0.02'.rjust(15, '0') # valor juros                                  15  *
+          segmento_p << '002'.rjust(15, '0') # valor juros                                   15  *
           segmento_p << pagamento.cod_desconto # cod. do desconto                            1
           segmento_p << pagamento.formata_data_desconto('%d%m%Y') # data desconto            8
           segmento_p << pagamento.formata_valor_desconto(15) # valor desconto                15
@@ -232,24 +232,24 @@ module Brcobranca
           segmento_r << '01' # cod. movimento remessa                                           2
           segmento_r << ' ' # cod. desconto                                                     1
           segmento_r << ''.rjust(8, ' ') # data desconto                                        8
-          segmento_r << ''.rjust(13, ' ') # valor desconto                                      13
+          segmento_r << ''.rjust(15, ' ') # valor desconto                                      15
           segmento_r << ' ' # cod. desconto                                                     1
           segmento_r << ''.rjust(8, ' ') # data desconto                                        8
-          segmento_r << ''.rjust(13, ' ') # valor desconto                                      13
+          segmento_r << ''.rjust(15, ' ') # valor desconto                                      15
           segmento_r << '2' # cod. desconto                                                     1
           segmento_r << pagamento.data_vencimento.strftime('%d%m%Y') # data multa               8
-          segmento_r << '2.00'.rjust(13, '0') # valor desconto                                  13
+          segmento_r << '200'.rjust(15, '0') # valor desconto                                   15
           segmento_r << ''.rjust(10, ' ') # informacao do pagador                               10
-          segmento_r << 'APÓS VENCIMENTO COBRAR 2% SOBRE O VALOR DO BOLETO'.rjust(40, '0') #    40 #informacao do pagador 
-          segmento_r << 'JUROS POR DIA 0.02%'.rjust(40, '0') # informacao do pagador            40
+          segmento_r << 'APÓS VENC COBRAR 2% SOBRE O VAL BOLETO'.rjust(40, ' ') #               40 #informacao do pagador 
+          segmento_r << 'JUROS POR DIA 0.02%'.rjust(40, ' ') # informacao do pagador            40
           segmento_r << ''.rjust(20, ' ') # FENABRAN                                            20
           segmento_r << ''.rjust(8, '0') # Cód. Ocor. do Pagador                                8
           segmento_r << cod_banco # codigo banco                                                3                 
           segmento_r << agencia.to_s.rjust(5, '0') # agencia                                    5
           segmento_r << digito_agencia.to_s # dv agencia                                        1
           segmento_r << conta_corrente.to_s.rjust(12, '0') # conta                              12 
-          segmento_r << digito_conta.to_s # dv conta                                   1
-          segmento_r << digito_conta.to_s.last # dv agencia conta                      1
+          segmento_r << digito_conta.to_s # dv conta                                            1
+          segmento_r << digito_conta.to_s.last # dv agencia conta                               1
           segmento_r << '3' # deb automatico                                                    1
           segmento_r << ' '.rjust(9,' ') # deb automatico                                       9
           segmento_r
