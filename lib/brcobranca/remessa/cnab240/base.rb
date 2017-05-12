@@ -248,8 +248,8 @@ module Brcobranca
           segmento_r << agencia.to_s.rjust(5, '0') # agencia                                    5
           segmento_r << digito_agencia.to_s # dv agencia                                        1
           segmento_r << conta_corrente.to_s.rjust(12, '0') # conta                              12 
-          segmento_r << digito_conta_corrente.to_s # dv conta                                   1
-          segmento_r << digito_conta_corrente.to_s.last # dv agencia conta                      1
+          segmento_r << digito_conta.to_s # dv conta                                   1
+          segmento_r << digito_conta.to_s.last # dv agencia conta                      1
           segmento_r << '3' # deb automatico                                                    1
           segmento_r << ' '.rjust(9,' ') # deb automatico                                       9
           segmento_r
