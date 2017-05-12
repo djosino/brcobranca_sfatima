@@ -251,7 +251,7 @@ module Brcobranca
           segmento_r << digito_conta_corrente.to_s # dv conta                                   1
           segmento_r << digito_conta_corrente.to_s.last # dv agencia conta                      1
           segmento_r << '3' # deb automatico                                                    1
-          segmento_r << ' '.rjust(9,' ' # deb automatico                                        9
+          segmento_r << ' '.rjust(9,' ') # deb automatico                                       9
           segmento_r
         end
         # Monta o registro trailer do lote
