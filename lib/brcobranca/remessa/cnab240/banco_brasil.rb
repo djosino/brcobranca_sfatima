@@ -213,7 +213,7 @@ module Brcobranca
           segmento_p << '1'                                             # cod. do juros                         1   *
           segmento_p << pagamento.data_vencimento.strftime('%d%m%Y')    # data juros                            8   *
           #segmento_p << ''.rjust(8, '0')
-          segmento_p << '0.02'.rjust(15, '0')                           # valor juros                           15  *
+          segmento_p << '002'.rjust(15, '0')                            # valor juros                           15  *
           segmento_p << pagamento.cod_desconto                          # cod. do desconto                      1
           segmento_p << pagamento.formata_data_desconto('%d%m%Y')       # data desconto                         8
           segmento_p << pagamento.formata_valor_desconto(15)            # valor desconto                        15
